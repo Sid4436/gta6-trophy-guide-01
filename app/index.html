@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, saved progress, filters, a spoiler setting, a roadmap to the platinum and the missable trophies flagged.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>Leonida Ledger</h1>
+    <p class="subtitle">GTA 6 Trophy Guide &amp; Tracker — PlayStation 5 · 55 trophies · works offline</p>
+  </div>
+  <div class="progress" id="progressBox" aria-live="polite">
+    <div class="progress-count"><span id="earnedCount">0</span><span class="of"> / 55 earned</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-sub" id="progressSub">Platinum: 0 of 54 to go</div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Views">
+  <button class="tab active" data-view="checklist" role="tab" aria-selected="true">Checklist</button>
+  <button class="tab" data-view="roadmap" role="tab" aria-selected="false">Roadmap to Platinum</button>
+  <button class="tab" data-view="missables" role="tab" aria-selected="false">Missables</button>
+  <button class="tab" data-view="about" role="tab" aria-selected="false">About &amp; Sources</button>
+</nav>
+
+<section class="toolbar" id="toolbar">
+  <input id="searchBox" type="search" placeholder="Search trophies by name or description…" aria-label="Search trophies">
+  <label class="field">Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="Platinum">Platinum</option>
+      <option value="Gold">Gold</option>
+      <option value="Silver">Silver</option>
+      <option value="Bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="field">Kind
+    <select id="kindFilter">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="crime">Crime &amp; robbery</option>
+      <option value="completion">100% completion</option>
+      <option value="misc">Other</option>
+    </select>
+  </label>
+  <label class="field">Status
+    <select id="statusFilter">
+      <option value="all">Earned &amp; unearned</option>
+      <option value="earned">Earned</option>
+      <option value="unearned">Not yet earned</option>
+    </select>
+  </label>
+  <label class="toggle"><input type="checkbox" id="spoilerToggle" checked> Hide story spoilers</label>
+  <div class="io-buttons">
+    <button id="exportBtn" type="button">Export progress</button>
+    <button id="importBtn" type="button">Import progress</button>
+    <input id="importFile" type="file" accept="application/json,.json" hidden>
+  </div>
+</section>
+
+<main class="layout">
+  <section class="list-pane">
+    <p class="list-meta" id="listMeta"></p>
+    <ul class="trophy-list" id="trophyList"></ul>
+
+    <div class="view-page" id="view-roadmap" hidden>
+      <h2>Roadmap to the Platinum — about 200 hours</h2>
+      <p class="lede">PowerPyx rates the set 4/10 and puts the platinum at roughly 200 hours, in a single playthrough. There are no online trophies, no difficulty trophies and no New Game+. Free roam stays open after the story, and there is no mission replay — so keep manual saves at the start and end of each chapter.</p>
+      <ol class="stages">
+        <li class="stage">
+          <h3>Stage 1 — Play the story (60–80 hours)</h3>
+          <p>Play all five chapters with Jason and Lucia. Take optional missions as they appear, scan vehicles with the WAiNK app and study animals with binoculars on the way — both feed the 100% checklist. <strong>Do the Chapter 1 balcony meditation</strong> for Positive Mental Attitude before leaving Chapter 1; it is the only potentially missable step in the whole list.</p>
+          <p class="stage-trophies" data-stage="story"></p>
+        </li>
+        <li class="stage">
+          <h3>Stage 2 — 100% completion (about 100 hours)</h3>
+          <p>After the credits, open Progress &gt; Stats &gt; 100% Completion and work the checklist. You only need the listed portions, not everything: 100 optional tasks, 39 Gang Operations, 22 Bank Jobs, 7 Payday Loan Jobs, 8 bank vaults, 15 of 18 card sets, 100 WAiNK scans, 33 underwater discoveries, 100 flamingos, 30 of 40 races won, all 42 Shooting Range gold medals, 42 drone time trials, 300 of 397 stunts, 70 of 80 challenges, 15 of 15 Bret target decks, 200 of 277 vehicles, 50 of 66 weapons, 100 of 255 animals.</p>
+          <p class="stage-trophies" data-stage="completion"></p>
+        </li>
+        <li class="stage">
+          <h3>Stage 3 — Strangers &amp; Freaks and cleanup (10–20 hours)</h3>
+          <p>Finish 8 Strangers &amp; Freaks strands and the five character questlines (Andy, Kenton, Billy, Randy, Tyrone), then clean up whatever is left — meditations, vaults, races and the odd combat trophy. When the last one pops, the Platinum follows.</p>
+          <p class="stage-trophies" data-stage="cleanup"></p>
+        </li>
+      </ol>
+      <p class="fineprint">Roadmap figures: KeenGamer's GTA 6 Trophy Guide &amp; Platinum Roadmap; difficulty and time: PowerPyx, via KeenGamer. Cheats disable trophies and saving while active — keep trophy runs cheat-free.</p>
+    </div>
+
+    <div class="view-page" id="view-missables" hidden>
+      <h2>Missable trophies</h2>
+      <p class="lede">Only one trophy is reported as possibly missable. Everything else — story trophies included — can be earned after the story in free roam, and nothing on the 100% checklist is missable.</p>
+      <div id="missableList"></div>
+      <h3>Watch out for</h3>
+      <ul class="warnings">
+        <li><strong>No mission replay.</strong> Keep a manual save at the beginning and end of each chapter (15 manual slots). A backup save is your only way back to an earlier story point.</li>
+        <li><strong>Cheats disable trophies.</strong> All 61 cheats unlock only after the credits, and using one disables trophies, achievements and saving while active. Save before you cheat and keep trophy runs clean.</li>
+        <li><strong>Stranger mission windows.</strong> Some Stranger mission chains have windows tied to story progress, but there are more strands than the 8 Strangers &amp; Freaks needs, so missing one chain cannot block the trophy.</li>
+      </ul>
+      <p class="fineprint">Sources: PowerPyx via KeenGamer and GTA Zone; TechWiser via GTA Zone for the Stranger windows.</p>
+    </div>
+
+    <div class="view-page" id="view-about" hidden>
+      <h2>About this guide</h2>
+      <p>Leonida Ledger is a free, open-source, offline trophy guide and tracker for Grand Theft Auto VI on PlayStation 5. It lists all 55 official trophies with their names, descriptions and grades as PlayStation publishes them, a guide to each in this guide's own words, and a tracker that saves your progress in this browser.</p>
+      <h3>Where the data comes from</h3>
+      <ul>
+        <li><strong>Trophy names, descriptions, grades and hidden flags:</strong> Exophase's GTA 6 trophy list and PSNProfiles' GTA 6 trophy page — the two agree on all 55 names, descriptions and grades.</li>
+        <li><strong>PSN progress targets</strong> (such as 42 Shooting Range challenges): PSNProfiles.</li>
+        <li><strong>Roadmap, 100% checklist figures and methods:</strong> KeenGamer's GTA 6 Trophy Guide &amp; Platinum Roadmap and GTA Zone's GTA 6 Trophy List; difficulty (4/10) and time (~200 hours) are PowerPyx's, via KeenGamer.</li>
+        <li><strong>Missable and unconfirmed flags:</strong> PowerPyx and GTABase, via KeenGamer and GTA Zone.</li>
+      </ul>
+      <p>Guides may draw on other guides and cite them, never copying their text — the official trophy names and descriptions are the exception and are shown as PlayStation publishes them. Five trophies were still unconfirmed by every guide on 18 November 2026; their guides say so instead of guessing.</p>
+      <h3>Your data stays yours</h3>
+      <p>Progress is stored only in this browser (localStorage). Export writes a JSON file you can keep or move to another browser; Import reads one back. This page makes no network request at all — it works with the network off, and it shows no Rockstar logo or official artwork.</p>
+      <p class="fineprint">Unofficial fan guide. Grand Theft Auto and GTA are trademarks of Take-Two Interactive; this guide is not affiliated with or endorsed by Rockstar Games. Trophy data: Exophase / PSNProfiles. Guide text: Leonida Ledger, 2026. MIT licensed.</p>
+    </div>
+  </section>
+
+  <aside class="detail-pane" id="detailPane" aria-live="polite">
+    <p class="detail-empty">Select a trophy to see its guide, sources and progress target.</p>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>55 trophies · 1 Platinum · 2 Gold · 6 Silver · 46 Bronze · 28 hidden · 0 online · ~200 hours to Platinum (PowerPyx, via KeenGamer).</p>
+</footer>
+
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
